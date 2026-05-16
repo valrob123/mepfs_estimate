@@ -239,7 +239,7 @@
   bottom: 0;
   background: rgba(10, 38, 71, 0.95);
   backdrop-filter: blur(8px);
-  z-index: 10000;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,11 +252,12 @@
   border-radius: 16px;
   max-width: 900px;
   width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
+  max-height: 85vh;
+  overflow: auto;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
   animation: slideInUp 0.3s ease-out;
   position: relative;
+  margin-top: 20px;
 }
 
 @keyframes slideInUp {
@@ -300,6 +301,8 @@
 .map-modal-header {
   padding: var(--space-xl);
   border-bottom: 1px solid var(--color-light-gray);
+  background: var(--color-white);
+  border-radius: 16px 16px 0 0;
 }
 
 .map-modal-header h3 {
@@ -322,12 +325,14 @@
   width: 100%;
   height: 450px;
   background: var(--color-light-gray);
+  position: relative;
 }
 
 .map-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+  display: block;
 }
 
 .map-modal-footer {
@@ -335,6 +340,8 @@
   border-top: 1px solid var(--color-light-gray);
   display: flex;
   justify-content: center;
+  background: var(--color-white);
+  border-radius: 0 0 16px 16px;
 }
 
 .btn-open-maps {
@@ -362,10 +369,13 @@
 @media (max-width: 768px) {
   .map-modal {
     padding: var(--space-md);
+    align-items: flex-start;
+    padding-top: 80px;
   }
 
   .map-modal-content {
-    max-height: 95vh;
+    max-height: calc(100vh - 100px);
+    margin-top: 0;
   }
 
   .map-modal-header {
